@@ -12,14 +12,14 @@ class CategoryMealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /*
+    retrieve data arguments from category item into routeArgs
+    (only id and title as denoted under category item)
+    */
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final categoryTitle = routeArgs['title']!;
     final categoryid = routeArgs['id'];
-    // final categoryduration = routeArgs['duration'];
-    // final categoryimageurl = routeArgs['imageUrl'];
-    // final categoryaffordability = routeArgs['affordability'];
-    // final categorycomplexity = routeArgs['complexity'];
     final categoryMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(categoryid);
     }).toList();
@@ -27,6 +27,9 @@ class CategoryMealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(categoryTitle),
       ),
+      /*
+      List out the content of the selected category
+      */
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(

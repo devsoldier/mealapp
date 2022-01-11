@@ -9,7 +9,11 @@ class CategoryItem extends StatelessWidget {
 
   CategoryItem(this.id, this.title, this.color);
 
-  //forward data to categorymeals screen
+  /*
+  selecting item forwards data of the selected item
+  to categorymeals screen
+  also navigates to the selected item page
+  */
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       CategoryMealsScreen.routeName,
