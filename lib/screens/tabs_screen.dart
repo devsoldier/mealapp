@@ -14,6 +14,7 @@ class _TabScreenState extends State<TabsScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
           title: Text('Meals'),
           bottom: TabBar(
             /*tab controller */

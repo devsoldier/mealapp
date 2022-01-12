@@ -31,10 +31,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (ctx) => CategoriesScreen(),
+        /*home screen = tabs screen */
         '/': (ctx) => TabsScreen(),
-        /*first screen */
-        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         /*second screen */
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        /*third screen */
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
       // onGenerateRoute: (settings) {

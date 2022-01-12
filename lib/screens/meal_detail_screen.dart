@@ -36,6 +36,7 @@ class MealDetailScreen extends StatelessWidget {
         meal.id == mealId); /*compares the id passed to the dummy data */
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
           title: Text('${selectedMeal.title}'),
         ),
         body: SingleChildScrollView(
