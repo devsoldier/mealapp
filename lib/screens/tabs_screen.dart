@@ -35,9 +35,7 @@ class _TabScreenState extends State<TabsScreen> {
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(_pages[_selectedPageIndex]['title']),
         ),
-        drawer: Drawer(
-          child: Text('The Drawer'),
-        ),
+        drawer: Drawer(child: Text('The Drawer')),
         body: _pages[_selectedPageIndex]
             ['page'], //display content base on index
         bottomNavigationBar: BottomNavigationBar(
