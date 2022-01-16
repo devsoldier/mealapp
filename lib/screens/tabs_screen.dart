@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './categories_screen.dart';
 import './favorites_screen.dart';
+import '../widgets/main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -35,22 +36,23 @@ class _TabScreenState extends State<TabsScreen> {
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(_pages[_selectedPageIndex]['title']),
         ),
-        drawer: Drawer(child: Text('The Drawer')),
+        drawer: MainDrawer(),
         body: _pages[_selectedPageIndex]
             ['page'], //display content base on index
         bottomNavigationBar: BottomNavigationBar(
-            onTap: _selectPage, //changes index
-            backgroundColor: Theme.of(context).primaryColor,
-            unselectedItemColor: Colors.white,
-            selectedItemColor: Theme.of(context).primaryColor,
-            currentIndex: _selectedPageIndex, //changes active tab base on index
-            type: BottomNavigationBarType.shifting,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.category), label: 'Categories'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.category), label: 'Favorites')
-            ]),
+          onTap: _selectPage, //changes index
+          backgroundColor: Theme.of(context).primaryColor,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Theme.of(context).primaryColor,
+          currentIndex: _selectedPageIndex, //changes active tab base on index
+          type: BottomNavigationBarType.shifting,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.category), label: 'Categories'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.category), label: 'Favorites')
+          ],
+        ),
       ),
     );
   }
