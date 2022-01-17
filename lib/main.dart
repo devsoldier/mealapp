@@ -65,11 +65,9 @@ class _MyAppState extends State<MyApp> {
                 fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
               ))),
-      // home: CategoriesScreen(),
       /*routes "table" */
       initialRoute: '/',
       routes: {
-        // '/': (ctx) => CategoriesScreen(),
         /*home screen = tabs screen */
         '/': (ctx) => TabsScreen(),
         /*second screen */
@@ -77,10 +75,12 @@ class _MyAppState extends State<MyApp> {
             CategoryMealsScreen(_availableMeals),
         /*third screen */
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        /*2nd drawer screen */
         FiltersScreen.routeName: (ctx) => FiltersScreen(
               _filters,
-              _setFilters,
-            ) /*passes _setFilters function to filters_screen.dart */
+              /*passes  */
+              _setFilters, /*passes _setFilters function to filters_screen.dart */
+            )
       },
       // onGenerateRoute: (settings) {
       //   print(settings.arguments);
