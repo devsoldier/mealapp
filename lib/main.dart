@@ -82,6 +82,9 @@ class _MyAppState extends State<MyApp> {
               _setFilters, /*passes _setFilters function to filters_screen.dart */
             )
       },
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
       // onGenerateRoute: (settings) {
       //   print(settings.arguments);
       //   return MaterialPageRoute(

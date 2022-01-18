@@ -15,36 +15,40 @@ class FiltersScreen extends StatefulWidget {
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
-  var _glutenFree = false;
-  var _vegetarian = false;
-  var _vegan = false;
-  var _lactoseFree = false;
+  bool _glutenFree = false;
+  bool _vegetarian = false;
+  bool _vegan = false;
+  bool _lactoseFree = false;
 
   @override
   initState() {
     _glutenFree = widget.currentFilters['gluten'] != null;
     _lactoseFree = widget.currentFilters['lactose'] != null;
-    _vegetarian = widget.currentFilters['vegetarian'] != null;
     _vegan = widget.currentFilters['vegan'] != null;
+    _vegetarian = widget.currentFilters['vegetarian'] != null;
     super.initState();
   }
 
-  Widget _buildSwitchListTile(String title, String description,
-      bool currentValue, dynamic updateValue) {
+  Widget _buildSwitchListTile(
+    String title,
+    String description,
+    bool currentValue,
+    dynamic updateValue,
+  ) {
     return SwitchListTile(
-      title: Text(title),
-      value: currentValue,
-      subtitle: Text(description),
-      onChanged: updateValue,
-    );
+        title: Text(title),
+        value: currentValue,
+        subtitle: Text(description),
+        onChanged: updateValue);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Your filters'), actions: <Widget>[
-        IconButton(
-            icon: Icon(Icons.save),
+      appBar: AppBar(
+        title: Text('Your filters'),
+        actions: <Widget>[
+          IconButton(
             onPressed: () {
               final selectedFilters = {
                 'gluten': _glutenFree,
@@ -53,15 +57,18 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 'vegetarian': _vegetarian
               };
               widget.saveFilters(selectedFilters);
-            })
-      ]),
+            },
+            icon: Icon(Icons.save),
+          )
+        ],
+      ),
       drawer: MainDrawer(),
       body: Column(
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(20),
             child: Text('adjust your meal selection',
-                style: Theme.of(context).textTheme.headline1),
+                style: Theme.of(context).textTheme.headline3),
           ),
           Expanded(
               child: ListView(

@@ -16,7 +16,7 @@ class CategoryMealsScreen extends StatefulWidget {
 }
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  late String categoryTitle;
+  late String? categoryTitle;
   late List<Meal> displayedMeals;
   var _loadedInitData = false;
 
@@ -34,14 +34,13 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     */
       final routeArgs =
           ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-      final categoryTitle = routeArgs['title']!;
+      categoryTitle = routeArgs['title'];
       final categoryid = routeArgs['id'];
       displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(categoryid);
       }).toList();
       _loadedInitData = true;
     }
-
     super.didChangeDependencies();
   }
 
@@ -54,10 +53,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   // final String categoryId;
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final categoryTitle = routeArgs['title']!;
-    final categoryid = routeArgs['id'];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
@@ -75,7 +70,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
             duration: displayedMeals[index].duration,
             affordability: displayedMeals[index].affordability,
             complexity: displayedMeals[index].complexity,
-            removeItem: _removeMeal,
           );
         },
         itemCount: displayedMeals.length,
