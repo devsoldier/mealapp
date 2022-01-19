@@ -22,10 +22,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
   @override
   initState() {
-    _glutenFree = widget.currentFilters['gluten'] != null;
-    _lactoseFree = widget.currentFilters['lactose'] != null;
-    _vegan = widget.currentFilters['vegan'] != null;
-    _vegetarian = widget.currentFilters['vegetarian'] != null;
+    _glutenFree = widget.currentFilters['gluten']!;
+    _lactoseFree = widget.currentFilters['lactose']!;
+    _vegan = widget.currentFilters['vegan']!;
+    _vegetarian = widget.currentFilters['vegetarian']!;
     super.initState();
   }
 
@@ -73,6 +73,15 @@ class _FiltersScreenState extends State<FiltersScreen> {
           Expanded(
               child: ListView(
             children: <Widget>[
+              // SwitchListTile(
+              //     title: Text('gluten free madafaka'),
+              //     value: _glutenFree,
+              //     subtitle: Text('pls work'),
+              //     onChanged: (newValue) {
+              //       setState(() {
+              //         _glutenFree = newValue;
+              //       });
+              //     }),
               _buildSwitchListTile(
                   'gluten-free', 'only include gluten-free meals', _glutenFree,
                   (newValue) {
