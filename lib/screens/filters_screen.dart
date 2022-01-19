@@ -46,7 +46,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your filters'),
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text('Your filters', style: TextStyle(color: Colors.white)),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
