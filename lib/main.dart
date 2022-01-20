@@ -62,6 +62,10 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  bool _isMealFavorite(String id) {
+    return _favoriteMeals.any((meal) => meal.id == id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -89,7 +93,8 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         /*third screen */
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        MealDetailScreen.routeName: (ctx) =>
+            MealDetailScreen(_toggleFavorite, _isMealFavorite),
         /*2nd drawer screen */
         FiltersScreen.routeName: (ctx) => FiltersScreen(
               _filters,
@@ -100,12 +105,6 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (settings) {
         print(settings.arguments);
       },
-      // onGenerateRoute: (settings) {
-      //   print(settings.arguments);
-      //   return MaterialPageRoute(
-      //     builder: (ctx) => CategoriesScreen(),
-      //   );
-      // },
     );
   }
 }
